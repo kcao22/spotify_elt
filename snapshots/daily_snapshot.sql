@@ -1,4 +1,4 @@
-{% snapshot all_snapshots %}
+{% snapshot daily_snapshots %}
 
 {{
     config(
