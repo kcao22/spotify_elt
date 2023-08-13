@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: spotify
+    database: raw
+    schema: spotify
+    tables:
+      - name: daily
+        freshness: 
+          warn_after:
+            count: 24
+            period: hour
