@@ -3,7 +3,10 @@ with tracks as (
         track_id
         , track_name
         , track_url
-        , track_length_ms
+        , round(
+            cast(track_length_ms as float) / 60000,
+            2
+        ) track_length_min
         , track_popularity
         , dbt_valid_from as valid_from
         , dbt_valid_to as valid_to
