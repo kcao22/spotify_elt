@@ -6,9 +6,26 @@ sources:
     schema: spotify
     tables:
       - name: daily
+        columns:
         - name: time_track_key
           tests:
-            
+            - unique
+            - not_null
+        - name: track_id
+          tests:
+            - not_null
+        - name: artist_id
+          tests:
+            - not_null
+        - name: album_id
+          tests:
+            - not_null
+        - name: played_at
+          tests:
+            - not_null
+        - name: date_appended
+          tests:
+            - not_null
         loaded_at_field: date_appended
         freshness: 
           warn_after: {count: 24, period: hour}
