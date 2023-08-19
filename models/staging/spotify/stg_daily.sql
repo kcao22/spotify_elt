@@ -1,7 +1,7 @@
 with daily as (
     select  
         *
-    from {{ ref('daily_snapshots') }}
+    from {{ source('spotify', 'daily') }}
 )
 
 select * from daily
