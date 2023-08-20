@@ -52,14 +52,23 @@ models:
         description: Unique identifier for individual songs.
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_tracks')
+              field: track_id
       - name: artist_id
         description: Unique identifier for individual artists.
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_artists')
+              field: artist_id
       - name: album_id
         description: Unique identifier for individual albums.
         tests: 
           - not_null
+          - relationships:
+              to: ref('dim_albums')
+              field: album_id
       - name: played_at
         description: Time at which track was played.
         tests:
