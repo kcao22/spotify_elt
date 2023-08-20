@@ -2,13 +2,13 @@
 
 with validation as (
     select 
-        {{ column_name }} as popularity_field
+        {{ column_name }}
     from {{ model }}
 ),
 
 validation_errors as (
     select 
-        popularity_field
+        {{ column_name }}
     from validation
     where {{ column_name }} not between 0 and 100
 )

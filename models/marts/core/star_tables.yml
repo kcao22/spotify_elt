@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: dim_artists
+    columns: 
+      - name: artist_id
+        tests:
+          - not_null
+      - name: artist_popularity
+        tests:
+        - popularity_between_0_100
+
+  - name: dim_albums
+    columns:
+      - name: album_id
+        tests:
+          - not_null
+      - name: album_popularity
+        tests:
+          - popularity_between_0_100
+      - name: album_total_tracks
+        tests:
+          - greater_than_0
+  
+  - name: dim_tracks
+    columns:
+      - name: track_id
+        tests:
+          - not_null
+      - name: track_length_min
+        tests:
+          - greater_than_0
+      - name: track_popularity
+        tests:
+          - popularity_between_0_100
+  
+  - name: fact_playlog
+    columns:
+      - name: time_track_key
+        tests:
+          - not_null
+          - unique
+      - name: track_id
+        tests:
+          - not_null
+      - name: artist_id
+        tests:
+          - not_null
+      - name: album_id
+        tests: 
+          - not_null
+      - name: played_at
+        tests:
+          - not_null
+      - name: date_appended
+        tests:
+          - not_null

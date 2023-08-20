@@ -31,7 +31,7 @@ with deduped_tracks_daily as (
         , round(
             cast(track_length_ms as float) / 60000,
             2
-        ) track_length_min
+        ) as track_length_min
         , track_popularity
         , date_appended as valid_from
         , lead(date_appended, 1) over(partition by track_id order by date_appended) as valid_to
