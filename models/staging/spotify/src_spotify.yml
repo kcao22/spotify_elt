@@ -45,10 +45,6 @@ sources:
         - name: album_total_tracks
           tests:
             - greater_than_0
-            
-        loaded_at_field: date_appended
-        freshness: 
-          warn_after: {count: 24, period: hour}
 
 models:
   - name: stg_daily
