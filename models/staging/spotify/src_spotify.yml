@@ -6,53 +6,89 @@ sources:
     schema: spotify
     tables:
       - name: daily
+        description: Raw Spotify listening history dataset. Data extracted daily using Spotify web API and loaded to this table. Unique time_track_key for each song played. All other columns are non-unique.
         columns:
         - name: time_track_key
+          description: Unique identifier for each track played in time.
           tests:
             - unique
             - not_null
         - name: track_id
+          description: Unique identifier for individual songs.
           tests:
             - not_null
         - name: artist_id
+          description: Unique identifier for individual artists.
           tests:
             - not_null
         - name: album_id
+          description: Unique identifier for individual albums.
           tests:
             - not_null
         - name: played_at
+          description: Time at which song was played.
           tests:
             - not_null
         - name: date_appended
+          description: Day data is appended.
           tests:
             - not_null
+        - name: track_popularity
+          tests:
+            - popularity_between_0_100
+        - name: artist_popularity
+          tests:
+            - popularity_between_0_100
+        - name: album_popularity
+          tests:
+            - popularity_between_0_100
+        - name: album_total_tracks
+          tests:
+            - greater_than_0
+            
         loaded_at_field: date_appended
         freshness: 
           warn_after: {count: 24, period: hour}
 
 models:
   - name: stg_daily
+    description: Staging table of raw daily table. 
     columns:
       - name: time_track_key
+        description: Unique identifier for each track played in time.
         tests:
           - unique
           - not_null
       - name: track_id
+        description: Unique identifier for individual songs.
         tests:
           - not_null
       - name: artist_id
+        description: Unique identifier for individual artists.
         tests:
           - not_null
       - name: album_id
+        description: Unique identifier for individual albums.
         tests:
           - not_null
       - name: played_at
+        description: Time at which song was played.
         tests:
           - not_null
       - name: date_appended
+        description: Day data is appended.
         tests:
           - not_null
       - name: track_popularity
         tests:
-          - not_null
+          - popularity_between_0_100
+      - name: artist_popularity
+        tests:
+          - popularity_between_0_100
+      - name: album_popularity
+        tests:
+          - popularity_between_0_100
+      - name: album_total_tracks
+        tests:
+          - greater_than_0
             
