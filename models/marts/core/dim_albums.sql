@@ -44,7 +44,7 @@ select
         , album_popularity
         , album_total_tracks
         , album_release_date
-        , date_appended as valid_from
+        , valid_from
         , valid_to
 from albums
 group by 
