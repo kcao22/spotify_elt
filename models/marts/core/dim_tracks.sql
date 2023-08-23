@@ -38,5 +38,19 @@ with deduped_tracks_daily as (
     from deduped_tracks_daily
 )
 select 
-    *
+    track_id
+    , track_name
+    , track_url
+    , track_length_min
+    , track_popularity
+    , valid_from
+    , valid_to
 from tracks
+group by
+    track_id
+    , track_name
+    , track_url
+    , track_length_min
+    , track_popularity
+    , valid_from
+    , valid_to

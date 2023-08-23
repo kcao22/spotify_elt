@@ -38,5 +38,21 @@ with deduped_albums_daily as (
     from deduped_albums_daily
 )
 select 
-    *
+    album_id
+        , album_name
+        , album_url
+        , album_popularity
+        , album_total_tracks
+        , album_release_date
+        , date_appended as valid_from
+        , valid_to
 from albums
+group by 
+        album_id
+        , album_name
+        , album_url
+        , album_popularity
+        , album_total_tracks
+        , album_release_date
+        , valid_from
+        , valid_to

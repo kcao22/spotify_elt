@@ -35,5 +35,19 @@ with deduped_artists_daily as (
     from deduped_artists_daily
 )
 select 
-    *
+    artist_id
+    , artist_name
+    , artist_url
+    , artist_followers
+    , artist_popularity
+    , valid_from
+    , valid_to
 from artists
+group by
+    artist_id
+    , artist_name
+    , artist_url
+    , artist_followers
+    , artist_popularity
+    , valid_from
+    , valid_to
