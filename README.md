@@ -3,7 +3,7 @@
 ![Alt Text](https://github.com/kcao22/spotify_elt/blob/main/Dashboards%20%26%20Visuals/elt_pipeline.png)
 
 **Demo of Looker Studio BI Dashboard**:
-![Alt Text](https://github.com/kcao22/spotify_elt/blob/main/Dashboards%20%26%20Visuals/Spotify_Listening_Activity.pdf)
+![Alt Text](https://github.com/kcao22/spotify_elt/blob/main/Dashboards%20%26%20Visuals/Spotify_Listening_Activity.PNG)
 
 ## Project Goal
  - To learn how to utilize modern data stack tools to build an ELT pipeline.
