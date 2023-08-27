@@ -1,0 +1,49 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table fact_playlog {
+    time_track_key TEXT [PRIMARY KEY]
+    track_id TEXT
+    artist_id TEXT
+    album_id TEXT
+    played_at DATE
+    date_appended DATE
+}
+
+Table dim_albums {
+    album_id TEXT
+    album_name TEXT
+    album_url TEXT
+    album_popularity SMALLINT
+    album_total_tracks SMALLINT
+    album_release_date DATE
+    valid_from DATE
+    valid_to DATE
+}
+
+Table dim_artists {
+    artist_id TEXT
+    artist_name TEXT 
+    artist_url TEXT
+    artist_followers SMALLINT
+    artist_popularity SMALLINT
+    valid_from DATE
+    valid_to DATE
+}
+
+Table dim_tracks {
+    track_id TEXT
+    track_name TEXT
+    track_url TEXT
+    track_length_min SMALLINT
+    track_popularity SMALLINT
+    valid_from DATE
+    valid_to DATE
+}
+
+
+Ref: fact_playlog.album_id > dim_albums.album_id
+Ref: fact_playlog.artist_id > dim_artists.artist_id
+Ref: fact_playlog.track_id > dim_tracks.track_id
+
+// many-to-one
