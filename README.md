@@ -5,6 +5,9 @@
 **Demo of Looker Studio BI Dashboard**:
 ![Alt Text](https://github.com/kcao22/spotify_elt/blob/main/Dashboards%20%26%20Visuals/Spotify_Listening_Activity.PNG)
 
+**Project Star Schema Dimensional Model**
+![Alt Text](https://github.com/kcao22/spotify_elt/blob/main/Data%20Modeling/spotify_star_schema.png)
+
 ## Project Goal
  - To learn how to utilize modern data stack tools to build an ELT pipeline.
  - Create an orchestrated ELT pipeline beginning from data generation, data ingestion, modern tool architectural designing, and end-user data analytics / business intelligence.
